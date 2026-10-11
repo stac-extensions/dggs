@@ -1,14 +1,16 @@
-# Template Extension Specification
+# DGGS Extension Specification
 
-- **Title:** Template
-- **Identifier:** <https://stac-extensions.github.io/template/v1.0.0/schema.json>
-- **Field Name Prefix:** template
+- **Title:** DGGS
+- **Identifier:** <https://stac-extensions.github.io/dggs/v0.1.0/schema.json>
+- **Field Name Prefix:** dggs
 - **Scope:** Item, Collection
 - **Extension [Maturity Classification](https://github.com/radiantearth/stac-spec/tree/master/extensions/README.md#extension-maturity):** Proposal
 - **Owner**: @your-gh-handles @person2
 
-This document explains the Template Extension to the [SpatioTemporal Asset Catalog](https://github.com/radiantearth/stac-spec) (STAC) specification.
+This document explains the DGGS Extension to the [SpatioTemporal Asset Catalog](https://github.com/radiantearth/stac-spec) (STAC) specification.
 This is the place to add a short introduction.
+
+**Work in progress. See <https://github.com/stac-extensions/dggs/issues/1> for the initial discussion.**
 
 - Examples:
   - [Item example](examples/item.json): Shows the basic usage of the extension in a STAC Item
