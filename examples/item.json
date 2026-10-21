@@ -1,67 +1,82 @@
 {
-  "stac_version": "1.0.0",
+  "stac_version": "1.1.0",
   "stac_extensions": [
-    "https://stac-extensions.github.io/template/v1.0.0/schema.json"
+    "https://stac-extensions.github.io/dggs/v0.1.0/schema.json",
+    "https://stac-extensions.github.io/projection/v2.0.0/schema.json"
   ],
   "type": "Feature",
-  "id": "item",
+  "id": "S2_L2A_HEALPix_7_11090_20240615",
+  "collection": "sentinel-2-l2a-healpix",
   "bbox": [
-    172.9,
-    1.3,
-    173,
-    1.4
+    11.0526,
+    46.965,
+    11.8421,
+    47.7497
   ],
   "geometry": {
     "type": "Polygon",
     "coordinates": [
       [
         [
-          172.9,
-          1.3
+          11.7391,
+          46.965
         ],
         [
-          173,
-          1.3
+          11.8421,
+          47.3576
         ],
         [
-          173,
-          1.4
+          11.1504,
+          47.7497
         ],
         [
-          172.9,
-          1.4
+          11.0526,
+          47.3576
         ],
         [
-          172.9,
-          1.3
+          11.7391,
+          46.965
         ]
       ]
     ]
   },
   "properties": {
-    "datetime": "2020-12-11T22:38:32Z",
-    "template:new_field": "test",
-    "template:xyz": {
-      "x": 1,
-      "y": 2,
-      "z": 3
-    },
-    "template:another_one": [
-      1,
-      2,
-      3
-    ]
+    "datetime": "2024-06-15T10:15:59Z",
+    "dggs:dggrs": "HEALPix",
+    "dggs:indexing_scheme": "nested",
+    "dggs:zone_id": "11090",
+    "dggs:zone_level": 7,
+    "proj:code": "EPSG:4326"
   },
   "links": [
     {
       "href": "https://example.com/examples/item.json",
       "rel": "self"
+    },
+    {
+      "href": "https://example.com/examples/collection.json",
+      "rel": "collection"
     }
   ],
   "assets": {
-    "data": {
-      "href": "https://example.com/examples/file.xyz",
-      "template:new_field": "test"
+    "level-13": {
+      "href": "https://example.com/data/7/11090/20240615/level-13.zarr",
+      "type": "application/vnd.zarr",
+      "title": "Reflectances at refinement level 13 (approx. 25 m)",
+      "roles": [
+        "data"
+      ],
+      "dggs:refinement_level": 13
+    },
+    "level-10": {
+      "href": "https://example.com/data/7/11090/20240615/level-10.zarr",
+      "type": "application/vnd.zarr",
+      "title": "Reflectances at refinement level 10 (approx. 200 m)",
+      "roles": [
+        "data",
+        "overview"
+      ],
+      "dggs:refinement_level": 10
     }
   }
 }

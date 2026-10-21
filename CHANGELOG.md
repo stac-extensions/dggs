@@ -16,4 +16,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-[Unreleased]: <https://github.com/stac-extensions/template/compare/v1.0.0...HEAD>
+## [v0.1.0]
+
+- First release
+
+[Unreleased]: <https://github.com/stac-extensions/dggs/compare/v0.1.0...HEAD>
+[v0.1.0]: <https://github.com/stac-extensions/dggs/releases/tag/v0.1.0>

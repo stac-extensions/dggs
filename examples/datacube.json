@@ -1,0 +1,97 @@
+{
+  "stac_version": "1.1.0",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/dggs/v0.1.0/schema.json",
+    "https://stac-extensions.github.io/datacube/v2.3.0/schema.json"
+  ],
+  "type": "Feature",
+  "id": "temperature-healpix",
+  "bbox": [
+    11.0526,
+    46.965,
+    11.8421,
+    47.7497
+  ],
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          11.7391,
+          46.965
+        ],
+        [
+          11.8421,
+          47.3576
+        ],
+        [
+          11.1504,
+          47.7497
+        ],
+        [
+          11.0526,
+          47.3576
+        ],
+        [
+          11.7391,
+          46.965
+        ]
+      ]
+    ]
+  },
+  "properties": {
+    "title": "Air temperature in a DGGS data cube",
+    "start_datetime": "2024-01-01T00:00:00Z",
+    "end_datetime": "2024-12-31T23:59:59Z",
+    "datetime": null,
+    "dggs:dggrs": "HEALPix",
+    "dggs:refinement_level": 8,
+    "cube:dimensions": {
+      "zone": {
+        "type": "dggs",
+        "reference_system": "https://www.opengis.net/def/dggrs/OGC/1.0/HEALPix",
+        "resolution": 8,
+        "values": [
+          "44360",
+          "44361",
+          "44362",
+          "44363"
+        ],
+        "dggs:indexing_scheme": "nested"
+      },
+      "t": {
+        "type": "temporal",
+        "extent": [
+          "2024-01-01T00:00:00Z",
+          "2024-12-31T23:59:59Z"
+        ],
+        "step": "P1D"
+      }
+    },
+    "cube:variables": {
+      "temperature": {
+        "type": "data",
+        "dimensions": [
+          "t",
+          "zone"
+        ],
+        "unit": "K"
+      }
+    }
+  },
+  "links": [
+    {
+      "href": "https://example.com/examples/datacube.json",
+      "rel": "self"
+    }
+  ],
+  "assets": {
+    "data": {
+      "href": "https://example.com/data/temperature.zarr",
+      "type": "application/vnd.zarr",
+      "roles": [
+        "data"
+      ]
+    }
+  }
+}

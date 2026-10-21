@@ -1,63 +1,69 @@
 {
-  "stac_version": "1.0.0",
+  "stac_version": "1.1.0",
   "stac_extensions": [
-    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json",
-    "https://stac-extensions.github.io/template/v1.0.0/schema.json"
+    "https://stac-extensions.github.io/dggs/v0.1.0/schema.json",
+    "https://stac-extensions.github.io/projection/v2.0.0/schema.json"
   ],
   "type": "Collection",
-  "id": "collection",
-  "title": "A title",
-  "description": "A description",
-  "license": "Apache-2.0",
+  "id": "sentinel-2-l2a-healpix",
+  "title": "Sentinel-2 L2A on HEALPix",
+  "description": "Sentinel-2 L2A reflectances resampled to the HEALPix DGGRS. Each Item covers a zone at refinement level 7 and provides the data at the refinement levels 10 and 13.",
+  "license": "other",
   "extent": {
     "spatial": {
       "bbox": [
         [
-          172.9,
-          1.3,
-          173,
-          1.4
+          -180,
+          -90,
+          180,
+          90
         ]
       ]
     },
     "temporal": {
       "interval": [
         [
-          "2015-06-23T00:00:00Z",
+          "2024-01-01T00:00:00Z",
           null
         ]
       ]
     }
   },
-  "template:new_field": "test",
-  "template:xyz": {
-    "x": 1,
-    "y": 2,
-    "z": 3
-  },
-  "template:another_one": [
-    1,
-    2,
-    3
-  ],
-  "assets": {
-    "example": {
-      "href": "https://example.com/examples/file.xyz",
-      "template:new_field": "test"
-    }
+  "summaries": {
+    "dggs:dggrs": [
+      "HEALPix"
+    ],
+    "dggs:indexing_scheme": [
+      "nested"
+    ],
+    "dggs:zone_level": [
+      7
+    ],
+    "dggs:refinement_level": {
+      "minimum": 10,
+      "maximum": 13
+    },
+    "proj:code": [
+      "EPSG:4326"
+    ]
   },
   "item_assets": {
-    "data": {
+    "level-13": {
+      "type": "application/vnd.zarr",
+      "title": "Reflectances at refinement level 13 (approx. 25 m)",
       "roles": [
         "data"
       ],
-      "template:new_field": "test"
-    }
-  },
-  "summaries": {
-    "datetime": {
-      "minimum": "2015-06-23T00:00:00Z",
-      "maximum": "2019-07-10T13:44:56Z"
+      "dggs:refinement_level": 13
+    },
+    "level-10": {
+      "type": "application/vnd.zarr",
+      "title": "Reflectances at refinement level 10 (approx. 200 m)",
+      "roles": [
+        "data",
+        "overview"
+      ],
+      "dggs:refinement_level": 10
     }
   },
   "links": [
@@ -68,6 +74,12 @@
     {
       "href": "https://example.com/examples/item.json",
       "rel": "item"
+    },
+    {
+      "href": "https://example.com/ogcapi/collections/sentinel-2-l2a-healpix/dggs",
+      "rel": "https://www.opengis.net/def/rel/ogc/1.0/dggrs-list",
+      "type": "application/json",
+      "title": "DGGRS available through OGC API - DGGS"
     }
   ]
 }
