@@ -95,11 +95,16 @@ each with its own `dggs:refinement_level`.
 If a single Asset contains multiple refinement levels (e.g. a multiscale Zarr), `dggs:refinement_level`
 is the finest refinement level contained in the Asset.
 
+In Collection summaries, the available refinement levels SHOULD be provided,
+either as a list of values or as a range (i.e. with `minimum` and `maximum`).
+
 #### dggs:indexing_scheme
 
 The indexing scheme that the zone identifiers follow, if it differs from the zone identifier reference system
 defined for the DGGRS.
 If this field is not provided, the zone identifiers follow the definition of the DGGRS.
+If it is provided, it overrides the zone identifier reference system of the DGGRS
+and clients MUST take it into account when interpreting zone identifiers.
 
 Some grids are commonly used with indexing schemes that differ from the DGGRS definition.
 For example, the OGC definition of HEALPix uses textual zone identifiers such as `C1-A`,
@@ -154,6 +159,8 @@ If both are provided, they MUST describe the same DGGRS and refinement level,
 e.g. `reference_system` may contain the URI `https://www.opengis.net/def/dggrs/OGC/1.0/HEALPix`
 while `dggs:dggrs` contains the name `HEALPix`.
 The other fields of this extension (e.g. `dggs:indexing_scheme`) MAY be added to the dimension.
+Fields that are not provided in the dimension are inherited from the Asset or Item Properties that contain the data cube,
+following the usual STAC inheritance from the Item Properties to the Assets.
 
 It is RECOMMENDED to additionally provide `dggs:dggrs` and `dggs:refinement_level`
 in the Item Properties or Assets so that the data can be found by searching.
